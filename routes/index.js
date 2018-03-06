@@ -11,6 +11,12 @@ router.get( '/users/:name', (req, res) => {
     res.render( 'index', { tweets: tweets} );
 });
 
+router.get( '/photos/:photo', (req, res) => {
+    const photo = req.params.photo;
+    const tweets = tweetBank.find( { photo: photo });
+    res.render( 'index', { tweets: tweets} );
+});
+
 router.get( '/tweets/:id', (req, res) => {
     const id = req.params.id;
     const tweets = tweetBank.find( { id: id });
