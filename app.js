@@ -1,10 +1,8 @@
 const express = require( 'express' );
 const app = express(); // creates an instance of an express application
+const volleyball = require('volleyball');
 
-app.use((req, res, next) => {
-    console.log(app.res, app.req);
-    next();
-});
+app.use(volleyball);
 
 app.get('/', (req, res) => res.send(`Hi there, Big Brother is watching you`));
 
