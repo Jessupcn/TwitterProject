@@ -4,6 +4,7 @@ const volleyball = require('volleyball');
 const nunjucks = require('nunjucks');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
+const socketio = require('socket.io');
 
 app.set('view engine', 'html'); // have res.render work with html files
 app.engine('html', nunjucks.render); // when giving html files to res.render, tell it to use nunjucks
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
-app.use('/', routes);
+app.use('/', routes(io));
 
 
 nunjucks.configure('views', {noCache: true});
@@ -28,4 +29,6 @@ nunjucks.render('index.html', null, (err, output) => {
 
 // app.get('/', (req, res) => res.render('index', {title: 'LOTR Badasses', people: locals.people}));
 
-app.listen(3000, () => console.log('Server is listening....... intently...'));
+const server = app.listen(3000);
+if (server){console.log('Server is listening....... intently...')}
+var io = socketio.listen(server);
