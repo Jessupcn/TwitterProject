@@ -13,6 +13,18 @@
     </div>
     <div class="col-md-9">
     
+        {% if showForm %}
+        <form action="/tweets" method="POST">
+          <label for="name_field">Name:</label>
+          <input name="name" type="text" id="name_field" placeholder="Your Name" autofocus=autofocus/>
+    
+          <label for="text_field">Text:</label>
+          <input name="text" type="text" id="text_field" style="width: 350px;" placeholder="What would you like to say?"/>
+    
+          <input type="submit" value="Submit" />
+        </form>
+      {% endif %}
+
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <li><a href="/users/{{tweet.name}}">{{tweet.name}}</a> - {{tweet.content}} <a href="/tweets/{{tweet.id}}"></a></li>
@@ -21,7 +33,7 @@
         <li style='list-style: none'><h5>{{tweet.name}}</h5></li>
         <li>{{tweet.content}}</li>
       {% endfor %} -->
-      
+
     </div>
   </div>
     

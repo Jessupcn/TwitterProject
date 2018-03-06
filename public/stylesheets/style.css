@@ -12,7 +12,7 @@ body {
   /* Negative indent footer by its height */
   margin: 0 auto -60px;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+  padding: 0 0 100px;
 }
 
 /* Set the fixed height of the footer here */
@@ -27,6 +27,10 @@ img {
 
 li {
     list-style-image: url('https://pbs.twimg.com/profile_images/2450268678/olxp11gnt09no2y2wpsh_normal.jpeg');
+}
+
+form {
+    padding-bottom: 35px;
 }
 
 

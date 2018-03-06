@@ -37,5 +37,3 @@ const randArrayEl = function(arr) {
 
   add('Captain Obvious', 'Wow twitter sure is taking off #Blessed');
   add('Scott', 'Hi');
-  console.log(find({id: '12'}));
-
